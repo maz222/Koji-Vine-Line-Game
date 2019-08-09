@@ -14,7 +14,8 @@
     "health": "3",
     "lives": "3",
     "scoreGain": "1",
-    "enableCursor": false
+    "enableCursor": false,
+    "leaderboardButtonText": "LEADERBOARDS"
   },
   "@@editor": [
     {
@@ -54,6 +55,12 @@
           "key": "playButtonText",
           "name": "Play Button Text",
           "description": "Label on the Play Button",
+          "type": "text"
+        },
+        {
+          "key": "leaderboardButtonText",
+          "name": "Leaderboard Button Text",
+          "description": "Label on the Leaderboard Button",
           "type": "text"
         },
         {

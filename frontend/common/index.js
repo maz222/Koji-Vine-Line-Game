@@ -1,24 +1,21 @@
-/** 
- * common/index.js
- *
- */
+import { h, render } from 'preact';
 import Koji from 'koji-tools';
+import './leaderboardStyles.css';
 
-Koji.pageLoad();
 window.Koji = Koji;
 
-require('script-loader!app/index.js');
-require('script-loader!app/utilities.js');
-require('script-loader!app/clickable.js');
-require('script-loader!app/entities.js');
-new p5();
+Koji.pageLoad();
 
-if (module.hot) {
-    module.hot.accept('script-loader!app/index.js', () => {
-        let oldCanvas = document.getElementsByTagName('canvas')[0];
-        oldCanvas.parentNode.removeChild(oldCanvas);
-
-        require('script-loader!app/index.js');
-        new p5();
-    });
+let root;
+function init() {
+	let App = require('../app/components/App').default;
+	root = render(<App />, document.body, root);
 }
+
+// in development, set up HMR:
+if (module.hot) {
+	//require('preact/devtools');   // turn this on if you want to enable React DevTools!
+	module.hot.accept('../app/components/App', () => requestAnimationFrame(init) );
+}
+
+init();

@@ -22,6 +22,7 @@ Controls: How is this game played?
 - Code with comment *"DELETE THIS"* is just example and can be deleted once you've checked out how it works
 - Use *checkHighscore()* whenever you want to check for highscore and save it to localStorage
 - Everything with a comment *"EXAMPLE"* above it is there just for illustration purposes and can be deleted once you want to make your own game.
+- If you're adding a new *.js* file, make sure you go to *components/GameContainer.js* and add the appropriate *require* line.
 
 ## Scaling
 
@@ -44,7 +45,17 @@ Would offset the X coordinate by two objSizes right of the center.
 
 - Have fun playing with this, it's really simple once you get the hang of it and could really simplify your code!
 
+## Leaderboards
 
+This app has a built-in backend Leaderboard system.
+
+Simplest way to use it:
+
+- Whenever the game ends and the player should submit their score, just call the function *submitScore()*
+- This will take the player to the *Set Score* screen.
+- *submitScore()* automatically takes the *score* variable that I've provided for keeping track of the score. If you wish to change that, the function is inside the *utilities.js* file.
+- You can see Leaderboard entries in the *Database* section in the left bar of the Koji editor.
+- You can edit the Leaderboard appearance with the VCCs in the left bar.
 
 # Customizations
 
@@ -72,6 +83,8 @@ Things that can be customized:
 - Any Google Font can be used
 - All game text
 - Lives
+
+## Leaderboards appearance
 
 ## NOTES
 
