@@ -61,7 +61,9 @@ class Leaderboard extends Component {
           </div>
           <div className={'leaderboard-contents'}>
             {
-              this.state.scores.map((score, index) => (
+              this.state.scores
+              .filter(score => !isNaN(score.score))
+              .map((score, index) => (
                 <div
                   className={'score-row'}
                   key={index}
