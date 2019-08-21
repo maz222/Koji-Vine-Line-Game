@@ -3,134 +3,137 @@ import PropTypes from 'prop-types';
 import Koji from 'koji-tools';
 
 class SetScore extends Component {
-	static propTypes = {
-		score: PropTypes.number,
-	};
+    static propTypes = {
+        score: PropTypes.number,
+    };
 
-	state = {
-		// email: '',
-		name: '',
-		isSubmitting: false,
-	};
+    state = {
+        email: '',
+        name: '',
+        isSubmitting: false,
+    };
 
-	componentDidMount() {
-		//Activated with a delay so it doesn't lose focus immediately after click
-		setTimeout(function(){
-			this.nameInput.focus();
-		}.bind(this), 100);
-		
-	}
+    componentDidMount() {
+        //Activated with a delay so it doesn't lose focus immediately after click
+        setTimeout(function () {
+            this.nameInput.focus();
+        }.bind(this), 100);
 
-	handleClose = () => {
-		window.setAppView("game");
-	}
+    }
 
-	handleSubmit = (e) => {
-		e.preventDefault();
+    handleClose = () => {
+        window.setAppView("game");
+    }
 
-		if (this.state.name != "") {
-			this.setState({ isSubmitting: true });
+    handleSubmit = (e) => {
+        e.preventDefault();
 
-			const body = {
-				name: this.state.name,
-				score: this.props.score,
-				// privateAttributes: {
-				//    email: this.state.email,
-				// },
-			};
+        if (this.state.name != "") {
+            this.setState({ isSubmitting: true });
 
-			fetch(`${Koji.config.serviceMap.backend}/leaderboard/save`, {
-				method: 'post',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(body),
-			})
-				.then((response) => response.json())
-				.then((jsonResponse) => {
-					console.log(jsonResponse);
+            const body = {
+                name: this.state.name,
+                score: this.props.score,
+                privateAttributes: {
+                    email: this.state.email,
+                },
+            };
 
-					window.setAppView('leaderboard');
-				})
-				.catch(err => {
-					console.log(err);
-				});
+            fetch(`${Koji.config.serviceMap.backend}/leaderboard/save`, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                .then((jsonResponse) => {
+                    console.log(jsonResponse);
 
-		}
-	}
+                    window.setAppView('leaderboard');
+                })
+                .catch(err => {
+                    console.log(err);
+                });
 
-	render() {
-		return (
-			<div>
-				<div className="title"
-					style={{ color: Koji.config.leaderboard.setScoreTitleColor }}>
-					{Koji.config.leaderboard.setScoreTitle}
-				</div>
+        }
+    }
 
-				<div id={'leaderboard-set-score'} style={{ backgroundColor: Koji.config.leaderboard.setScoreBackgroundColor, borderColor: Koji.config.leaderboard.setScoreBorderColor }}>
-					<form
-						id={'score-form'}
-						onSubmit={this.handleSubmit}
-					>
-						<div className={'input-wrapper'}>
-							<label className={'label'} style={{ color: Koji.config.leaderboard.setScoreLabelColor }}>
-								{Koji.config.leaderboard.setScoreLabelScore}
-							</label>
-							<input
-								disabled
-								value={this.props.score}
-								style={{ color: Koji.config.leaderboard.setScoreSubmitButtonTextColor }}
-							/>
-						</div>
+    render() {
+        return (
+            <div style={{ position: "absolute", backgroundColor: Koji.config.colors.backgroundColor, width: "100vw", height: "100vh" }}>
+                <div className="title"
+                    style={{ color: Koji.config.colors.titleColor }}>
+                    {"Submit To Leaderboard"}
+                </div>
 
-						<div className={'input-wrapper'}>
-							<label className={'label'} style={{ color: Koji.config.leaderboard.setScoreLabelColor }}>
-								{Koji.config.leaderboard.setScoreLabelName}
-							</label>
-							<input
-								onChange={(event) => {
-									this.setState({ name: event.target.value });
-								}}
-								type={'text'}
-								value={this.state.name}
-								style={{ color: Koji.config.leaderboard.setScoreSubmitButtonTextColor }}
-								ref={(input) => { this.nameInput = input; }}
-							/>
-						</div>
+                <div id={'leaderboard-set-score'} style={{ backgroundColor: Koji.config.colors.backgroundColor, borderColor: Koji.config.colors.titleColor }}>
+                    <form
+                        id={'score-form'}
+                        onSubmit={this.handleSubmit}
+                    >
+                        <div className={'input-wrapper'}>
+                            <label className={'label'} style={{ color: Koji.config.colors.titleColor }}>
+                                {"Score"}
+                            </label>
+                            <input
+                                disabled
+                                value={this.props.score}
+                                style={{ color: Koji.config.colors.titleColor, borderColor: Koji.config.colors.titleColor }}
+                            />
+                        </div>
 
-						{/* <div className={'input-wrapper'}>
-            <label>{'Your Email Address (Private)'}</label>
-            <input
-              onChange={(event) => {
-                this.setState({ email: event.target.value });
-              }}
-              type={'email'}
-              value={this.state.email}
-            />
-          </div> */}
+                        <div className={'input-wrapper'}>
+                            <label className={'label'} style={{ color: Koji.config.colors.titleColor }}>
+                                {"Name"}
+                            </label>
+                            <input
+                                onChange={(event) => {
+                                    this.setState({ name: event.target.value });
+                                }}
+                                type={'text'}
+                                value={this.state.name}
+                                style={{ color: Koji.config.colors.titleColor, borderColor: Koji.config.colors.titleColor }}
+                                ref={(input) => { this.nameInput = input; }}
+                            />
+                        </div>
 
-						<button
-							disabled={this.state.isSubmitting}
-							onClick={this.handleSubmit}
-							type={'submit'}
-							style={{ backgroundColor: Koji.config.leaderboard.setScoreSubmitButtonColor, color: Koji.config.leaderboard.setScoreSubmitButtonTextColor }}
-						>
-							{Koji.config.leaderboard.setScoreSubmitButtonText}
-						</button>
-					</form>
+                        {Koji.config.strings.emailInputEnabled ?
+                            <div className={'input-wrapper'}>
+                            <label style={{ color: Koji.config.colors.titleColor }}>{'Your Email Address (Private)'}</label>
+                            <input
+                                onChange={(event) => {
+                                    this.setState({ email: event.target.value });
+                                }}
+                                type={'email'}
+                                value={this.state.email}
+                                style={{ color: Koji.config.colors.titleColor, borderColor: Koji.config.colors.titleColor }}
+                            />
+                        </div>
+                        :<span></span>}
 
-					<button className="dismiss-button"
-						onClick={this.handleClose}
-						style={{ backgroundColor: Koji.config.leaderboard.setScoreCancelButtonColor, color: Koji.config.leaderboard.setScoreCancelButtonTextColor}}>
-						{Koji.config.leaderboard.setScoreCancelButtonText}
+                        <button
+                            disabled={this.state.isSubmitting}
+                            onClick={this.handleSubmit}
+                            type={'submit'}
+                            style={{ backgroundColor: Koji.config.colors.buttonColor, color: Koji.config.colors.buttonTextColor }}
+                        >
+                           {this.state.isSubmitting ? "Submitting..." : "Submit"}
+                        </button>
+                    </form>
 
-					</button>
+                    <button className="dismiss-button"
+                        onClick={this.handleClose}
+                        style={{ backgroundColor: Koji.config.colors.buttonColor, color: Koji.config.colors.buttonTextColor }}>
+                        {"Cancel"}
+
+                    </button>
 
 
-				</div>
-			</div>
-		)
-	}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default SetScore;

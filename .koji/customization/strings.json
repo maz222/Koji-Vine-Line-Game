@@ -15,7 +15,7 @@
     "lives": "3",
     "scoreGain": "1",
     "enableCursor": false,
-    "leaderboardButtonText": "LEADERBOARDS"
+    "leaderboardButtonText": "LEADERBOARD"
   },
   "@@editor": [
     {
@@ -97,6 +97,12 @@
           "key": "enableCursor",
           "name": "Enable Cursor",
           "description": "Show/Hide Cursor on PC during the game (visible on main menu)",
+          "type": "boolean"
+        },
+        {
+          "key": "emailInputEnabled",
+          "name": "Enable E-Mail Input",
+          "description": "Enable/Disable E-Mail input while submitting score.",
           "type": "boolean"
         }
       ]

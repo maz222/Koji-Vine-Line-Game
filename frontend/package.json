@@ -10,8 +10,8 @@
     "start": "webpack-dev-server --config ./.internals/webpack.development.js --hot --inline"
   },
   "dependencies": {
-    "koji-tools": "^0.5.3",
-    "preact": "^8.5.1",
+    "koji-tools": "^0.5.45",
+    "preact": "^8.5.2",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {

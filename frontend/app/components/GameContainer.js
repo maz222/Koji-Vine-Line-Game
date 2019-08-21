@@ -7,11 +7,16 @@ import PropTypes from 'prop-types';
 const { p5 } = window;
 
 class GameContainer extends Component {
-    componentDidMount() {
+    componentWillMount() {
+        //Include all scripts here
         require('script-loader!app/index.js');
-        require('script-loader!app/utilities.js');
         require('script-loader!app/clickable.js');
         require('script-loader!app/entities.js');
+        require('script-loader!app/utilities.js');
+
+    }
+
+    componentDidMount() {
         this.p5Game = new p5(null, document.getElementById('game-container'));
     }
 

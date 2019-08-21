@@ -8,7 +8,7 @@ class Leaderboard extends Component {
     error: false,
   };
 
-  componentDidMount() {
+  componentWillMount() {
     fetch(`${Koji.config.serviceMap.backend}/leaderboard`)
       .then((response) => response.json())
       .then(({ scores }) => {
@@ -23,7 +23,7 @@ class Leaderboard extends Component {
   render() {
     if (this.state.error) {
       return (
-        <div id={'leaderboard'} style={{backgroundColor: Koji.config.leaderboard.setScoreBackgroundColor, color: Koji.config.leaderboard.leaderboardTitleColor}}>
+        <div id={'leaderboard'} style={{ backgroundColor: Koji.config.colors.backgroundColor, color: Koji.config.colors.titleColor }}>
           <div className={'leaderboard-loading'}>
             <div>{'Error!'}</div>
             <button onClick={() => window.setAppView('game')}>
@@ -36,43 +36,41 @@ class Leaderboard extends Component {
 
     if (!this.state.dataIsLoaded) {
       return (
-        <div id={'leaderboard'} style={{backgroundColor: Koji.config.leaderboard.setScoreBackgroundColor}}>
+        <div id={'leaderboard'} style={{ backgroundColor: Koji.config.colors.backgroundColor }}>
           <div className={'leaderboard-loading'}>
             <div style="display: flex; margin-top: 20vh; justify-content: center; text-align: center; animation-name: logo; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: ease-out;">
-		    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-	        </div>
+              <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
           </div>
         </div>
       );
     }
 
     return (
-      <div id={'leaderboard'} style={{backgroundColor: Koji.config.leaderboard.setScoreBackgroundColor}}>
+      <div id={'leaderboard'} style={{ backgroundColor: Koji.config.colors.backgroundColor }}>
         <div className={'leaderboard-container'}>
           <div class={'leaderboard-title'}>
-          <div class={'leaderboard-title-text'} style={{color: Koji.config.leaderboard.leaderboardTitleColor}}>{Koji.config.leaderboard.leaderboardTitle}</div>
+            <div class={'leaderboard-title-text'} style={{ color: Koji.config.colors.titleColor }}>{"Top Scores"}</div>
             <div
               class={'leaderboard-close-button'}
               onClick={() => { window.setAppView('game'); }}
-              style={{color: Koji.config.leaderboard.leaderboardCloseColor}}
+              style={{ color: Koji.config.colors.titleColor }}
             >
-              {Koji.config.leaderboard.leaderboardCloseText}
+              {"Close"}
             </div>
           </div>
           <div className={'leaderboard-contents'}>
             {
-              this.state.scores
-              .filter(score => !isNaN(score.score))
-              .map((score, index) => (
+              this.state.scores.slice(0, 100).map((score, index) => (
                 <div
                   className={'score-row'}
                   key={index}
-                  style={{backgroundColor: Koji.config.leaderboard.leaderboardEntryBackgroundColor}}
+                  style={{ backgroundColor: Koji.config.colors.buttonColor }}
                 >
-                  <div className={'name'} style={{color: Koji.config.leaderboard.leaderboardNameColor}}>
+                  <div className={'name'} style={{ color: Koji.config.colors.buttonTextColor }}>
                     {`${index + 1}. ${score.name}`}
                   </div>
-                  <div className={'score'} style={{color: Koji.config.leaderboard.leaderboardScoreColor}}>
+                  <div className={'score'} style={{ color: Koji.config.colors.buttonTextColor }}>
                     {score.score}
                   </div>
                 </div>

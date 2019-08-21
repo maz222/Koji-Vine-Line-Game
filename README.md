@@ -55,7 +55,7 @@ Simplest way to use it:
 - This will take the player to the *Set Score* screen.
 - *submitScore()* automatically takes the *score* variable that I've provided for keeping track of the score. If you wish to change that, the function is inside the *utilities.js* file.
 - You can see Leaderboard entries in the *Database* section in the left bar of the Koji editor.
-- You can edit the Leaderboard appearance with the VCCs in the left bar.
+- Leaderboard appearance inherits styles from the game, using Title Color and button colors.
 
 # Customizations
 
