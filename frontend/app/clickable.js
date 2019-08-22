@@ -87,6 +87,7 @@ function Clickable(){
 	}
 	
 	this.draw = function(){
+
 		fill(this.color);
 		stroke(this.stroke);
 		strokeWeight(this.strokeWeight);

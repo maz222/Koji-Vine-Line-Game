@@ -13,6 +13,7 @@ class GameContainer extends Component {
         require('script-loader!app/clickable.js');
         require('script-loader!app/entities.js');
         require('script-loader!app/utilities.js');
+        require('script-loader!app/easing.js');
 
     }
 

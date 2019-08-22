@@ -19,8 +19,6 @@ Controls: How is this game played?
 - To end a game, simply change *gameOver* to *TRUE*. This will take you to the main menu.
 - Clicking the PLAY button will restart the game (resets the *gameOver* boolean and calls the *init()* function).
 - Reset everything in *init()* function (clear out all arrays, reset variables to their initial state etc. simply get everything as it was when the game loaded).
-- Code with comment *"DELETE THIS"* is just example and can be deleted once you've checked out how it works
-- Use *checkHighscore()* whenever you want to check for highscore and save it to localStorage
 - Everything with a comment *"EXAMPLE"* above it is there just for illustration purposes and can be deleted once you want to make your own game.
 - If you're adding a new *.js* file, make sure you go to *components/GameContainer.js* and add the appropriate *require* line.
 
