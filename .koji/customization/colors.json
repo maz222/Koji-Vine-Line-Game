@@ -40,27 +40,22 @@
         },
        {
           "key": "buttonTextColor",
-          "name": "Play Button Text Color",
+          "name": "Button Text Color",
           "type": "color"
         },
         {
           "key": "buttonColor",
-          "name": "Play Button Color",
+          "name": "Button Color",
           "type": "color"
         },
         {
           "key": "buttonHoverColor",
-          "name": "Play Button Hover Color",
+          "name": "Button Hover Color",
           "type": "color"
         },
         {
           "key": "buttonClickColor",
-          "name": "Play Button Click Color",
-          "type": "color"
-        },
-        {
-          "key": "playButtonClickColor",
-          "name": "Play Button Click Color",
+          "name": "Button Click Color",
           "type": "color"
         }
       ]

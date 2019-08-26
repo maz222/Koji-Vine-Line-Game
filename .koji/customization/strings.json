@@ -64,12 +64,6 @@
           "type": "text"
         },
         {
-          "key": "scoreText",
-          "name": "Score Text",
-          "description": "Default: 'Score:'",
-          "type": "text"
-        },
-        {
           "key": "highscoreText",
           "name": "High Score Text",
           "description": "Default: 'High Score:'",
