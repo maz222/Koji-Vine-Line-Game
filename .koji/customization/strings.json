@@ -14,7 +14,7 @@
     "health": "3",
     "lives": "3",
     "scoreGain": "1",
-    "enableCursor": false,
+    "enableCursor": true,
     "leaderboardButtonText": "LEADERBOARD"
   },
   "@@editor": [

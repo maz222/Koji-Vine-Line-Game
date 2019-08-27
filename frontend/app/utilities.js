@@ -125,7 +125,7 @@ class SoundButton {
 
         image(img, this.pos.x, this.pos.y, this.sizeMod * objSize, this.sizeMod * objSize); //draw
     }
-    
+
     checkClick() {
         if (mouseX >= this.pos.x &&
             mouseX <= this.pos.x + this.sizeMod * objSize &&
@@ -284,4 +284,3 @@ function submitScore() {
     window.setAppView('setScore');
 
 }
-

@@ -50,6 +50,7 @@ let touching = false; //Whether the user is currently touching/clicking
 
 //===This function is called before starting the game
 function preload() {
+
     //===Load font from google fonts link provided in game settings
     var link = document.createElement('link');
     link.href = Koji.config.strings.fontFamily;
@@ -103,8 +104,8 @@ function setup() {
 
     isMobile = detectMobile();
 
-    textFont(myFont); //set our font
-
+    //set our font in both the game and html body(needed for leaderboards)
+    textFont(myFont);
     document.body.style.fontFamily = myFont;
 
     playButton = new PlayButton();
@@ -353,32 +354,44 @@ function loseLife() {
 //===The way to use Floating Text:
 //floatingTexts.push(new FloatingText(...));
 //Everything else like drawing, removing it after it's done etc, will be done automatically
-class FloatingText {
-    constructor(x, y, txt, color, size) {
-        this.pos = createVector(x, y);
-        this.size = 1;
-        this.maxSize = size;
-        this.timer = 1;
-        this.txt = txt;
-        this.color = color;
-    }
+function FloatingText(x, y, txt, color, size) {
+    this.pos = createVector(x, y);
+    this.size = 1;
+    this.maxSize = size;
+    this.timer = 0.65;
+    this.txt = txt;
+    this.color = color;
 
-    update() {
-        if (this.timer > 0.3) {
-            if (this.size < this.maxSize) {
-                this.size = Smooth(this.size, this.maxSize, 4);
-            }
-        } else {
-            this.size = Smooth(this.size, 0.01, 4);
+    this.maxVelocityY = -objSize * 0.075;
+    this.velocityY = objSize * 0.3;
+    this.alpha = 1;
+    this.animTimer = 0;
+    this.update = function () {
+
+        this.animTimer += 1 / frameRate();
+
+        //Get dat size bounce effect
+        this.size = Ease(EasingFunctions.easeOutElastic, this.animTimer, 1, this.maxSize, 1 / 0.65);
+
+        if (this.timer < 0.3) {
+            this.alpha = Smooth(this.alpha, 0, 4);
         }
+
+        this.velocityY = Smooth(this.velocityY, this.maxVelocityY, 4);
+        this.pos.y += this.velocityY;
 
         this.timer -= 1 / frameRate();
     }
 
-    render() {
+    this.render = function () {
+        push();
         textSize(this.size);
-        fill(this.color);
-        textAlign(CENTER, BOTTOM);
+
+        fill('rgba(' + red(this.color) + ',' + green(this.color) + ',' + blue(this.color) + ',' + this.alpha + ')');
+
+        textAlign(CENTER, TOP);
         text(this.txt, this.pos.x, this.pos.y);
+        pop();
     }
 }
+
