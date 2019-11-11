@@ -1,5 +1,6 @@
 import Database from '@withkoji/database';
 import uuid from 'uuid';
+import md5 from 'md5';
 
 export default function (app) {
   app.get('/test', async (req, res) => {
@@ -32,14 +33,23 @@ export default function (app) {
     });
 
     app.post('/leaderboard/save', async (req, res) => {
-        const recordId = uuid.v4();
+        const hash = md5(JSON.stringify(req.body));
+        if (hash !== req.headers.authorization) {
+            res.status(200).json({
+                success: true,
+            });
+            return;
+        }
+
+        const { privateAttributes =  {} } = req.body;
         const recordBody = {
             name: req.body.name,
             score: req.body.score,
-            privateAttributes: req.body.privateAttributes,
             dateCreated: Math.round(Date.now() / 1000),
+            ...privateAttributes,
         };
 
+        const recordId = uuid.v4();
         const database = new Database();
         await database.set('leaderboard', recordId, recordBody);
 
