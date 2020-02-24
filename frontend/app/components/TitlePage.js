@@ -49,8 +49,8 @@ class TitlePage extends Component {
         };
         let soundButtonStyle = {
             position:'absolute',
-            top:'50px',
-            right:'50px',
+            top:'25px',
+            right:'25px',
             backgroundColor:'rgba(0,0,0,.3)',
             width:'60px',
             height:'60px',
