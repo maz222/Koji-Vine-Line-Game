@@ -90,7 +90,7 @@ class SubmitForm extends Component {
 		const submitButtonStyle = {float:'right',padding:'10px 20px 10px 20px',backgroundColor:VCC.submitButton.backgroundColor,border:0,borderRadius:'5px',
 			color:'rgb(240,240,240)',fontSize:'1em', minWidth:'25%'};
 		const wrapperStyle = {width:'100%', margin:'20px 0 0 0'};
-        const ruleStyle = {border:'.5px solid rgba(0,0,0,.1)',margin:'20px 0 20px 0', width:'100%'};
+        const ruleStyle = {border:'.5px solid rgba(0,0,0,.1)',margin:'5px 0 5px 0', width:'100%'};
         const checkboxStyle = {display:'none'};		
         let submittingStyle = {...submitButtonStyle, backgroundColor:'rgb(200,200,200)', border:'1px solid rgba(0,0,0,.2)', textAlign:'center'};
         let formEnd = this.state.isSubmitting ? <div style={submittingStyle}>{VCC.submitButton.activeContent}</div> : <button type="submit" style={submitButtonStyle}>{VCC.submitButton.defaultContent}</button>;
@@ -115,7 +115,7 @@ class SubmitForm extends Component {
                     </label>
 				</div>
                 <hr style={ruleStyle}/>
-				<div style={wrapperStyle}>
+				<div style={{...wrapperStyle, margin:'5px'}}>
                     {formEnd}
 				</div>
 			</form>
