@@ -255,6 +255,7 @@ class GameFailState extends GameBaseState {
 		}
 		this.grid.update();
 		if(this.timer >= this.fallTime + FALL_DELAY) {
+			assets.stopMusic();
 			window.setAppView('gameLoss');
 			return this;
 		}
@@ -308,6 +309,7 @@ class GameWinState extends GameBaseState {
 		}
 		this.grid.update();
 		if(this.timer >= this.fallTime) {
+			assets.stopMusic();
 			window.setAppView('gameWin')
 			return this;
 		}

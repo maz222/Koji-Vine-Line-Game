@@ -22,6 +22,7 @@ class GameContainer extends Component {
     }
 
     componentWillUnmount() {
+		console.log("removing game");
         this.p5Game.remove();
     }
 

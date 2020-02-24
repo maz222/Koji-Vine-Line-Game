@@ -105,7 +105,7 @@ function setup() {
     let backColor = hexToHSL(VCC.backButton.backgroundColor);
     let backHoverColor = hexToHSL(VCC.backButton.backgroundColor);
 	backHoverColor[2] = Math.max(0,backHoverColor[2]-20);
-    let backCallback = () => {window.setAppView("intro")};
+    let backCallback = () => {assets.stopMusic(); window.setAppView("intro")};
     backButton = new HoverButton([buttonX+colWidth/4,buttonY],30,50,assets.images[9],backColor,backCallback,assets.images[9],backHoverColor);
 
     let soundColor = hexToHSL(VCC.soundButton.backgroundColor);

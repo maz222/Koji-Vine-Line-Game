@@ -70,6 +70,11 @@ class AssetManager {
 			}
 		}
 	}
+	stopMusic() {
+		if(this.sounds[0] != null) {
+			this.sounds[0].stop();
+		}
+	}
 	playMusic() {
         if(localStorage.getItem('isMuted') != 'true' && this.sounds[0] != null) {
 			this.sounds[0].stop();
