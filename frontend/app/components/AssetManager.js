@@ -3,10 +3,12 @@ class AssetManager {
 		this.images = [];
 		this.sounds = [];
 		this.loadCount = 0;
-        this.loadImages();
-        this.loadSounds();
         userStartAudio();
 	}
+    startLoad() {
+        this.loadImages();
+        this.loadSounds();
+    }
 	isLoading() {
 		return this.loadCount > 0;
 	}

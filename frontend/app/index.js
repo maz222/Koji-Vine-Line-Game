@@ -77,6 +77,7 @@ function transpose(matrix) {
 //Load everything here
 function preload() {
     assets = new AssetManager();
+    assets.startLoad();
 }
 
 
@@ -170,6 +171,7 @@ function drawLoadingScreen() {
 
 function draw() {
     if(assets.isLoading()) {
+        console.log("loading");
         drawLoadingScreen();
     }
     else {

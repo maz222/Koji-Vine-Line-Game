@@ -17,6 +17,7 @@ export default class App extends Component {
 		window.setScore = score => { this.setState({ score }); }
         localStorage.setItem('muted','false');
         let loadingAnimation = document.querySelector('#p5_loading');
+        //loadingAnimation.setAttribute("style","display:none");
 		loadingAnimation.parentNode.removeChild(loadingAnimation);
 	}
 
@@ -48,6 +49,10 @@ export default class App extends Component {
 		if (this.state.view === 'game') {
 			return (
 				<div>
+					<div id="p5_loading" style="display: flex; margin-top: 20vh; justify-content: center; text-align: center; animation-name: logo; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: ease-out;"
+					class="">
+						<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+					</div>					
 					<GameContainer />
 				</div>
 			)
