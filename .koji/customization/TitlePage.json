@@ -1,0 +1,144 @@
+{
+  "titleScreen": {
+    "title": {
+      "content": "Line Bridge",
+      "color": "#f20101",
+      "logo": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/3h8sc-TitleLogo.png"
+    },
+    "playButton": {
+      "content": "Level Select",
+      "color": "#f0f0f0",
+      "backgroundColor": "#52bb0c"
+    },
+    "howToPlayButton": {
+      "content": "Tutorial",
+      "color": "#ffffff",
+      "backgroundColor": "#f23409"
+    },
+    "background": {
+      "backgroundColor": "#4c4949",
+      "backgroundImage": "https://images.koji-cdn.com/157b340c-ca63-4aae-99b3-03d5936121e2/nn5xf-019MalibuBeach.png"
+    },
+    "leaderboardButton": {
+      "content": "Leaderboard",
+      "color": "#f0f0f0",
+      "backgroundColor": "#1222c7"
+    }
+  },
+  "@@editor": [
+    {
+      "key": "titleScreen",
+      "name": "1. Title Screen",
+      "icon": "🎬",
+      "source": "TitleScreen.json",
+      "fields": [
+        {
+          "key": "title",
+          "name": "Title",
+          "type": "object<Title>",
+          "typeOptions": {
+            "Title": {
+              "content": {
+                "name": "Title Text",
+                "description": "Title text, only used if no logo is provided.",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "logo": {
+                "name": "Title Logo",
+                "description": "Title logo. Leave blank to use simple text instead. (300 x 300 recommended size)",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "key": "playButton",
+          "name": "Level Select Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "leaderboardButton",
+          "name": "Leaderboard Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "howToPlayButton",
+          "name": "Tutorial Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "background",
+          "name": "Background",
+          "description": "The background for the page.",
+          "type": "object<Background>",
+          "typeOptions": {
+            "Background": {
+              "backgroundImage": {
+                "name": "Background Image",
+                "description": "A background image. Leave empty to use a solid color instead. (1680 x 1050 suggested size)",
+                "type": "image"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "A solid background color.",
+                "type": "color"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

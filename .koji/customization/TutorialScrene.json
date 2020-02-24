@@ -1,0 +1,66 @@
+{
+  "tutorial": {
+    "background": {
+      "backgroundColor": "#262323",
+      "backgroundImage": "https://images.koji-cdn.com/157b340c-ca63-4aae-99b3-03d5936121e2/nn5xf-019MalibuBeach.png"
+    },
+    "banner": {
+      "content": "Tutorial",
+      "backgroundColor": "#141414",
+      "textColor": "#f0f0f0"
+    }
+  },
+  "@@editor": [
+    {
+      "key": "tutorial",
+      "name": "7. Tutorial Screen",
+      "icon": "📧",
+      "source": "TutorialScreen.json",
+      "fields": [
+        {
+          "key": "banner",
+          "name": "Banner",
+          "type": "object<Banner>",
+          "typeOptions": {
+            "Banner": {
+              "content": {
+                "name": "Banner Text",
+                "description": "Banner text.",
+                "type": "text"
+              },
+              "backgroundColor": {
+                "name": "Banner Background Color",
+                "type": "color"
+              },
+              "textColor": {
+                "name": "Title Text Color",
+                "description": "The color of the banner title.",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "background",
+          "name": "Background",
+          "description": "The background for the page.",
+          "type": "object<Background>",
+          "typeOptions": {
+            "Background": {
+              "backgroundImage": {
+                "name": "Background Image",
+                "description": "A background image. Leave empty to use a solid color instead. (1680 x 1050 suggested size)",
+                "type": "image"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "A solid background color.",
+                "type": "color"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

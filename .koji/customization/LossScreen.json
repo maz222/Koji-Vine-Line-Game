@@ -1,0 +1,287 @@
+{
+  "endScreen": {
+    "playAgainButton": {
+      "content": "Replay Level",
+      "color": "#fffbfb",
+      "backgroundColor": "#2660b0"
+    },
+    "quitButton": {
+      "content": "Quit",
+      "color": "#f9f4f4",
+      "backgroundColor": "#de0404"
+    },
+    "levelButton": {
+      "content": "Level Select",
+      "color": "#f4f0f0",
+      "backgroundColor": "#282727"
+    },
+    "winBanner": {
+      "content": "Level Cleared",
+      "backgroundColor": "#189e32",
+      "textColor": "#f2eded"
+    },
+    "loseBanner": {
+      "content": "Level Failed",
+      "backgroundColor": "#e01010",
+      "textColor": "#e8e1e1"
+    },
+    "winBackground": {
+      "backgroundImage": "https://images.koji-cdn.com/157b340c-ca63-4aae-99b3-03d5936121e2/nn5xf-019MalibuBeach.png",
+      "backgroundColor": "#7ac536"
+    },
+    "loseBackground": {
+      "backgroundImage": "https://images.koji-cdn.com/157b340c-ca63-4aae-99b3-03d5936121e2/nn5xf-019MalibuBeach.png",
+      "backgroundColor": "#c10e0e"
+    },
+    "scoreForm": {
+      "nameField": "Username",
+      "emailField": "Email (optional)",
+      "optIn": "I agree to be contacted",
+      "submitButton": {
+        "defaultContent": "Submit",
+        "activeContent": "Submitting...",
+        "submittedContent": "Score Submitted!",
+        "color": "#f4efef",
+        "backgroundColor": "#1f73d8"
+      }
+    },
+    "leaderboardButton": {
+      "content": "Leaderboard",
+      "color": "#f7f1f1",
+      "backgroundColor": "#800ce0"
+    }
+  },
+  "@@editor": [
+    {
+      "key": "endScreen",
+      "name": "4. Level End Screens",
+      "icon": "💎",
+      "source": "LossScreen.json",
+      "fields": [
+        {
+          "key": "winBanner",
+          "name": "Level Clear Banner",
+          "description": "For when you finish a level",
+          "type": "object<Banner>",
+          "typeOptions": {
+            "Banner": {
+              "content": {
+                "name": "Banner Text",
+                "description": "Banner text.",
+                "type": "text"
+              },
+              "backgroundColor": {
+                "name": "Banner Background Color",
+                "type": "color"
+              },
+              "textColor": {
+                "name": "Title Text Color",
+                "description": "The color of the banner title.",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "loseBanner",
+          "name": "Level Fail Banner",
+          "type": "object<Banner>",
+          "typeOptions": {
+            "Banner": {
+              "content": {
+                "name": "Banner Text",
+                "description": "Banner text.",
+                "type": "text"
+              },
+              "backgroundColor": {
+                "name": "Banner Background Color",
+                "type": "color"
+              },
+              "textColor": {
+                "name": "Title Text Color",
+                "description": "The color of the banner title.",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "scoreForm",
+          "name": "Submit Score Form",
+          "type": "object<ScoreForm>",
+          "typeOptions": {
+            "ScoreForm": {
+              "nameField": {
+                "name": "Enter Name Label",
+                "type": "text"
+              },
+              "emailField": {
+                "name": "Enter Email Label",
+                "type": "text"
+              },
+              "optIn": {
+                "name": "Email Opt In Label",
+                "type": "text"
+              },
+              "submitButton": {
+                "name": "Submit Score Button",
+                "type": "object<SubmitButton>",
+                "typeOptions": {
+                  "SubmitButton": {
+                    "defaultContent": {
+                      "name": "Button Text",
+                      "description": "Used before being clicked, before a score has been sent.",
+                      "type": "text"
+                    },
+                    "activeContent": {
+                      "name": "Active Button Text",
+                      "description": "Used after being clicked, while a score is being submitted",
+                      "type": "text"
+                    },
+                    "submittedContent": {
+                      "name": "Submitted Text",
+                      "description": "Used once the score has been submitted to the leaderboard",
+                      "type": "text"
+                    },
+                    "color": {
+                      "name": "Text Color",
+                      "type": "color"
+                    },
+                    "backgroundColor": {
+                      "name": "Background Color",
+                      "type": "color"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "leaderboardButton",
+          "name": "Leaderboard Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "playAgainButton",
+          "name": "Play Again Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "levelButton",
+          "name": "Level Select Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "quitButton",
+          "name": "Quit Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "content": {
+                "name": "Button Text",
+                "type": "text"
+              },
+              "color": {
+                "name": "Text Color",
+                "type": "color"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "winBackground",
+          "name": "Level Clear Background",
+          "description": "The background for the page.",
+          "type": "object<Background>",
+          "typeOptions": {
+            "Background": {
+              "backgroundImage": {
+                "name": "Background Image",
+                "description": "A background image. Leave empty to use a solid color instead. (1680 x 1050 suggested size)",
+                "type": "image"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "A solid background color.",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "loseBackground",
+          "name": "Level Fail Background",
+          "description": "The background for the page.",
+          "type": "object<Background>",
+          "typeOptions": {
+            "Background": {
+              "backgroundImage": {
+                "name": "Background Image",
+                "description": "A background image. Leave empty to use a solid color instead. (1680 x 1050 suggested size)",
+                "type": "image"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "A solid background color.",
+                "type": "color"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "gameScene": {
+    "lineColor": "#000000",
+    "singleLine": {
+      "backgroundColor": "#f0f0f0",
+      "buttonImage": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/nttxi-SingleLine.png"
+    },
+    "doubleLine": {
+      "backgroundColor": "#f0f0f0",
+      "buttonImage": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/llu2u-DoubleLine.png"
+    },
+    "trippleLine": {
+      "backgroundColor": "#f0f0f0",
+      "buttonImage": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/dwu02-TrippleLine.png"
+    },
+    "pageBackground": {
+      "backgroundColor": "#ff8e8e",
+      "backgroundImage": "https://images.koji-cdn.com/157b340c-ca63-4aae-99b3-03d5936121e2/nn5xf-019MalibuBeach.png"
+    },
+    "levelBackground": {
+      "backgroundColor": "#877272",
+      "backgroundImage": "https://images.koji-cdn.com/d4d2aab7-1847-481d-8aa6-6866d81d5e0f/bn5dl-bg.png"
+    },
+    "failColor": "#fd0101",
+    "winColor": "#14f405",
+    "entrance": "https://images.koji-cdn.com/d4d2aab7-1847-481d-8aa6-6866d81d5e0f/y80bd-block.png",
+    "exit": "https://images.koji-cdn.com/d4d2aab7-1847-481d-8aa6-6866d81d5e0f/jben3-house3.png",
+    "wall": "https://images.koji-cdn.com/d4d2aab7-1847-481d-8aa6-6866d81d5e0f/mwo2t-bomb.png",
+    "coin": "https://images.koji-cdn.com/d4d2aab7-1847-481d-8aa6-6866d81d5e0f/pe7id-slot1.png",
+    "backButton": {
+      "buttonImage": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/bfe5b-backButton.png",
+      "backgroundColor": "#505050"
+    },
+    "soundButton": {
+      "onImage": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/lwcfb-unmute.png",
+      "backgroundColor": "#505050",
+      "offImage": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/8q84i-mute.png"
+    }
+  },
+  "@@editor": [
+    {
+      "key": "gameScene",
+      "name": "2. Game Screen",
+      "icon": "🎮",
+      "source": "GameSceneVCC.json",
+      "fields": [
+        {
+          "key": "pageBackground",
+          "name": "Page Background",
+          "description": "The overall background for the page.",
+          "type": "object<Background>",
+          "typeOptions": {
+            "Background": {
+              "backgroundImage": {
+                "name": "Background Image",
+                "description": "A background image. Leave empty to use a solid color instead. (1680 x 1050 suggested size)",
+                "type": "image"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "A solid background color.",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "levelBackground",
+          "name": "Level Background",
+          "description": "The background for the actual game level.",
+          "type": "object<Background>",
+          "typeOptions": {
+            "Background": {
+              "backgroundImage": {
+                "name": "Background Image",
+                "description": "A background image. Leave empty to use a solid color instead. (1680 x 1050 suggested size)",
+                "type": "image"
+              },
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "A solid background color.",
+                "type": "color"
+              }
+            }
+          }
+        },
+        {
+          "key": "failColor",
+          "name": "Level Game Over Color",
+          "description": "The background color for a level when you lose.",
+          "type": "color"
+        },
+        {
+          "key": "winColor",
+          "name": "Level Win Color",
+          "description": "The background color for a level when you win.",
+          "type": "color"
+        },
+        {
+          "key": "lineColor",
+          "name": "Line Color",
+          "description": "The color for the player line.",
+          "type": "color"
+        },
+        {
+          "key": "entrance",
+          "name": "Spawn Block",
+          "description": "The block the player starts on. (50x50 recommended size)",
+          "type": "image"
+        },
+        {
+          "key": "exit",
+          "name": "Exit Block",
+          "description": "The block the player has to get to. (50x50 recommended size)",
+          "type": "image"
+        },
+        {
+          "key": "wall",
+          "name": "Wall Block",
+          "description": "Walls that the player must avoid. (50x50 recommended size)",
+          "type": "image"
+        },
+        {
+          "key": "coin",
+          "name": "Coin",
+          "description": "Optional coins that the player can collect. (50x50 recommended size)",
+          "type": "image"
+        },
+        {
+          "key": "singleLine",
+          "name": "Single Line Button",
+          "description": "Button player clicks to add a single line.",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "Background color for the button",
+                "type": "color"
+              },
+              "buttonImage": {
+                "name": "Image",
+                "description": "Image for the button. (50x50 recommended size)",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "key": "doubleLine",
+          "name": "Double Line Button",
+          "description": "Button player clicks to add two lines.",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "Background color for the button",
+                "type": "color"
+              },
+              "buttonImage": {
+                "name": "Image",
+                "description": "Image for the button. (50x50 recommended size)",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "key": "trippleLine",
+          "name": "Tripple Line Button",
+          "description": "Button player clicks to add three lines.",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "Background color for the button",
+                "type": "color"
+              },
+              "buttonImage": {
+                "name": "Image",
+                "description": "Image for the button. (50x50 recommended size)",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "key": "backButton",
+          "name": "Back Button",
+          "description": "Back Button",
+          "type": "object<Button>",
+          "typeOptions": {
+            "Button": {
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "Background color for the button",
+                "type": "color"
+              },
+              "buttonImage": {
+                "name": "Image",
+                "description": "Image for the button. (50x50 recommended size)",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "key": "soundButton",
+          "name": "Sound Button",
+          "description": "Button for enabling/disabling sounds.",
+          "type": "object<ToggleButton>",
+          "typeOptions": {
+            "ToggleButton": {
+              "backgroundColor": {
+                "name": "Background Color",
+                "description": "Background color for the button",
+                "type": "color"
+              },
+              "onImage": {
+                "name": "On Image",
+                "description": "Image for the when sound is enabled. (50x50 recommended size)",
+                "type": "image"
+              },
+              "offImage": {
+                "name": "Off Image",
+                "description": "Image for when the sound is disabled. (50x50 recommended size)",
+                "type": "image"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

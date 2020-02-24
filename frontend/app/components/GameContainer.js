@@ -10,7 +10,11 @@ class GameContainer extends Component {
     componentWillMount() {
         //Include all scripts here
         require('script-loader!app/index.js');
-
+        require('script-loader!app/components/AssetManager.js');
+        require('script-loader!app/components/PlayerBridge.js');
+        require('script-loader!app/components/GameGrid.js');
+        require('script-loader!app/components/GameStates.js');
+        require('script-loader!app/components/P5Buttons.js');
     }
 
     componentDidMount() {

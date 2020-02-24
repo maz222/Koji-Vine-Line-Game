@@ -1,18 +1,46 @@
 {
   "sounds": {
-    "tap": "https://objects.koji-cdn.com/b4acde8c-96d4-4b1e-9e6e-4cca208833fe/laser1.mp3"
+    "music": "https://objects.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/id5tv-music.mp3",
+    "addLine": "https://objects.koji-cdn.com/8a481a29-cab7-4f1b-b68a-3190cdaa6e4e/userData/m9ybi-faj3wu.mp3",
+    "getCoin": "https://objects.koji-cdn.com/8a481a29-cab7-4f1b-b68a-3190cdaa6e4e/userData/h3qvb-HKigKo.mp3",
+    "levelFail": "https://objects.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/s5vhv-Error.mp3",
+    "levelClear": "https://objects.koji-cdn.com/8a481a29-cab7-4f1b-b68a-3190cdaa6e4e/userData/ukmrr-GDoUVK.mp3"
   },
   "@@editor": [
     {
       "key": "sounds",
-      "name": "Sounds",
+      "name": "3. Game Sounds",
       "icon": "🎵",
       "source": "sounds.json",
       "fields": [
         {
-          "key": "tap",
-          "name": "Tap",
-          "description": "Played on tap/click",
+          "key": "music",
+          "name": "Background Music",
+          "description": "Background music for the game.",
+          "type": "sound"
+        },
+        {
+          "key": "addLine",
+          "name": "Line Added",
+          "description": "Played when a user adds a line to their vine.",
+          "type": "sound"
+        },
+        {
+          "key": "getCoin",
+          "name": "Get Coin",
+          "description": "Played when a user acquires a coin in a level.",
+          "type": "sound"
+        },
+        {
+          "key": "levelFail",
+          "name": "Game Over",
+          "description": "Played when a user fails a level.",
+          "type": "sound"
+        },
+        {
+          "key": "levelClear",
+          "name": "Level Clear",
+          "description": "Played when a user successfully clears a level.",
           "type": "sound"
         }
       ]
