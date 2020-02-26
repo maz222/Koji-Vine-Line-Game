@@ -122,7 +122,7 @@ class GameGrid {
 		this.items = {coins:[],walls:[],spawn:[],goal:[]};
 		this.parseGrid();
 		this.origin = origin;
-		this.state = new GridSpawnState(this,spawnTime);
+		this.state = new GridBaseState(this);
 	}
 	getWidth() {
 		return this.cellSize*this.grid.length;
@@ -199,7 +199,7 @@ class GameGrid {
 			if(checkLineIntersection(lineSegment,coinCenter,this.cellSize/2-stroke_size)) {
 				score += 1;
 				coinHit = true;
-				assets.playSound(2);
+				soundController.playSound(1);
 			}
 			else {
 				coinsCopy.push(coin);

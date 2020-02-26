@@ -11,6 +11,7 @@ class Leaderboard extends Component {
   };
 
   componentWillMount() {
+      console.log("leaderboard mount");
     fetch(`${Koji.config.serviceMap.backend}/leaderboard`)
       .then((response) => response.json())
       .then(({ scores }) => {
@@ -24,6 +25,8 @@ class Leaderboard extends Component {
 
   render() {
     const VCC = Koji.config.leaderboard;
+    console.log(this.state.error);
+    console.log(this.state.dataIsLoaded);
     if (this.state.error) {
       return (
         <div id={'leaderboard'} style={{ backgroundColor: VCC.background.backgroundColor, color:'black' }}>

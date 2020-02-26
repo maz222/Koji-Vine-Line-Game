@@ -5,7 +5,7 @@ import HoverButton from './ReactButtons.js';
 class TitlePage extends Component {
     constructor(props) {
         super(props);
-        let sessionMute = localStorage.getItem('isMuted');
+        let sessionMute = sessionStorage.getItem('isMuted');
         if(sessionMute === undefined || sessionMute === 'true') {
             sessionMute = true;
         }
@@ -15,7 +15,7 @@ class TitlePage extends Component {
         this.state = {muted:sessionMute};
     }
     componentWillUnmount() {
-        localStorage.setItem('isMuted',this.state.muted);
+        sessionStorage.setItem('isMuted',this.state.muted);
     }
     render() {
         const VCC = Koji.config.titleScreen;

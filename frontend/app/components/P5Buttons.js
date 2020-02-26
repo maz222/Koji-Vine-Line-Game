@@ -45,7 +45,7 @@ class SoundButton extends HoverButton {
         let hovered = this.checkHover();
         let padding = this.buttonRadius * .1;
         push();
-        let img = localStorage.getItem('isMuted') == 'false' ? this.baseImage : this.hoverImage;
+        let img = sessionStorage.getItem('isMuted') == 'false' ? this.baseImage : this.hoverImage;
         colorMode(HSL);
         fill(hovered ? this.hoverColor : this.baseColor);
         circle(this.origin[0],this.origin[1],this.buttonRadius*2);

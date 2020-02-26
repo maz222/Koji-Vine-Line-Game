@@ -84,12 +84,12 @@ class GameBaseState {
 		let segment = [this.bridge.points[this.bridge.points.length-1],this.bridge.getCursorPosition()];
 		this.grid.checkCoinHitbox(segment);
 		if(this.grid.checkGoalHitbox(segment)) {
-			return new GameWinState(this.bridge,this.grid,2);
+			return new GameWinState(this.bridge,this.grid,.5);
 		}
 		
 		if(this.failed || 
 			(this.checkFailState([this.bridge.points[this.bridge.points.length-1],this.bridge.getCursorPosition()])) && this.bridge.points.length > 1) {
-			return new GameFailState(this.bridge,this.grid,2);
+			return new GameFailState(this.bridge,this.grid,.5);
 		}
 		return this;
 	}
@@ -202,35 +202,36 @@ class GameSpawnState extends GameBaseState {
 	constructor(bridge,grid,spawnTime) {
 		super(bridge,grid);
 		this.spawnTime = spawnTime;
+		this.timer = 0;
 	}
 	update() {
-		if(frameRate() > 0) {
-			this.spawnTime -= 1/frameRate();
+		if(frameRate() > 1) {
+			this.timer += 1/frameRate();
 		}
 		this.grid.update();
-		if(this.spawnTime >= 0) {
-			return this;
-		}
-		else {
+		if(this.timer >= this.spawnTime) {
 			return new GameBaseState(this.bridge,this.grid);
 		}
+		return this;
 	}
 	handleClick() {
 		return;
 	}
 	render() {
 		let VCC = Koji.config.gameScene;	
-		let griddArr = this.grid.grid;
+		let gridArr = this.grid.grid;
 	    push();
 	    //offset/center level
 	    translate((width-gridArr.length*this.grid.cellSize)/2,(height-gridArr[0].length*this.grid.cellSize)/2); 
 	    push();
 	    fill(VCC.levelBackground.backgroundColor);
-	    rect(0,0,griddArr.length*this.grid.cellSize,griddArr[0].length*this.grid.cellSize);
+	    rect(0,0,gridArr.length*this.grid.cellSize,gridArr[0].length*this.grid.cellSize);
 	    if(assets.images[1] !== null) {
-	    	image(assets.images[1],0,0,griddArr.length*this.grid.cellSize,griddArr[0].length*this.grid.cellSize);
+	    	image(assets.images[1],0,0,gridArr.length*this.grid.cellSize,gridArr[0].length*this.grid.cellSize);
 	    }
 	    pop();
+		let yOffset = easeOutQuad(this.timer,0,gridArr[0].length*this.grid.cellSize,this.spawnTime);
+		translate(0,gridArr[0].length*this.grid.cellSize-yOffset);
 	    grid.render();
 	    //bridge.render();
 	    pop();
@@ -247,15 +248,17 @@ class GameFailState extends GameBaseState {
 		super(bridge,grid);
 		this.fallTime = fallTime;
 		this.timer = 0;
-		assets.playSound(3);
+        let gridArr = this.grid.grid;
+        this.maxHeight = gridArr[0].length*this.grid.cellSize + bridge.baseLength*3;
+		soundController.playSound(2);
 	}
 	update() {
-		if(frameRate() > 0) {
+		if(frameRate() > 1) {
 			this.timer += 1/frameRate();
 		}
 		this.grid.update();
 		if(this.timer >= this.fallTime + FALL_DELAY) {
-			assets.stopMusic();
+			soundController.mute();
 			window.setAppView('gameLoss');
 			return this;
 		}
@@ -276,8 +279,9 @@ class GameFailState extends GameBaseState {
 	    push();
 	    let yOffset = 0;
 	    if(this.timer > FALL_DELAY) {
-	    	yOffset = easeOutQuad(this.timer-FALL_DELAY,0,height*1.5,this.fallTime);
+	    	yOffset = easeOutQuad(this.timer-FALL_DELAY,0,this.maxHeight,this.fallTime);
 		}
+        console.log(yOffset);
 		translate(0,yOffset);
 	    bridge.render();
 	    pop();
@@ -290,6 +294,7 @@ class GameWinState extends GameBaseState {
 		super(bridge,grid);
 		this.fallTime = fallTime;
 		this.timer = 0;
+        this.maxHeight = gridArr[0].length*this.grid.cellSize;
 
 		//add score
 		let scores = JSON.parse(localStorage.getItem('scores'));
@@ -301,15 +306,15 @@ class GameWinState extends GameBaseState {
         scores[level] = tScore;
         localStorage.setItem('scores',JSON.stringify(scores));
 
-		assets.playSound(4);
+		soundController.playSound(3);
 	}
 	update() {
-		if(frameRate() > 0) {
+		if(frameRate() > 1) {
 			this.timer += 1/frameRate();
 		}
 		this.grid.update();
 		if(this.timer >= this.fallTime) {
-			assets.stopMusic();
+			soundController.mute();
 			window.setAppView('gameWin')
 			return this;
 		}
@@ -329,7 +334,7 @@ class GameWinState extends GameBaseState {
 	    pop();
 	    bridge.render(true);
 	    push();
-	    let yOffset = easeOutQuad(this.timer,0,height*1.5,this.fallTime);
+	    let yOffset = easeOutQuad(this.timer,0,this.maxHeight,this.fallTime);
 		translate(0,yOffset);
 	    grid.render();
 	    pop();

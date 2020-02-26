@@ -16,7 +16,7 @@ class PlayerBridge {
 		}
 	}
 	addLines(lineCount=1) {
-        assets.playSound(1);
+        soundController.playSound(0);
 		recentPoints = [this.points[this.points.length-1]];
 		let curX = Math.cos(this.cursorAngle);
 		let curY = Math.sin(this.cursorAngle);

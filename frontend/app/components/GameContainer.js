@@ -15,6 +15,7 @@ class GameContainer extends Component {
         require('script-loader!app/components/GameGrid.js');
         require('script-loader!app/components/GameStates.js');
         require('script-loader!app/components/P5Buttons.js');
+        require('script-loader!app/components/SoundController.js');
     }
 
     componentDidMount() {
@@ -22,6 +23,7 @@ class GameContainer extends Component {
     }
 
     componentWillUnmount() {
+        console.log("unmounting");
         this.p5Game.remove();
     }
 
