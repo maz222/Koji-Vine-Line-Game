@@ -1,0 +1,12 @@
+{
+    "quickstart": {
+        "items":[
+            "titleScreen.title",
+            "gameScene.entrance",
+            "gameScene.exit",
+            "gameScene.wall",
+            "gameScene.coin",
+            "levelSelect.gameLevels"
+        ]
+    }
+}
