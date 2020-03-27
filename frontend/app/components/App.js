@@ -1,25 +1,40 @@
 import { h, Component } from 'preact';
 import GameContainer from './GameContainer';
-import Leaderboard from './Leaderboard';
 import TitlePage from './TitlePage';
 import LevelPage from './LevelPage';
 import EndPage from './LevelEndPage';
 import TutorialPage from './Tutorial';
 
+import WebFont from 'webfontloader';
 
 export default class App extends Component {
 	state = {
 		view: 'intro',
 	};
-
-	componentDidMount() {
+    
+    componentDidMount() {
 		window.setAppView = view => { this.setState({ view }); }
 		window.setScore = score => { this.setState({ score }); }
         sessionStorage.setItem('isMuted','true');
         let loadingAnimation = document.querySelector('#p5_loading');
         //loadingAnimation.setAttribute("style","display:none");
 		loadingAnimation.parentNode.removeChild(loadingAnimation);
+
+        this.loadFont();
 	}
+
+    componentDidUpdate() {
+        if (Koji.config.general.fontFamily.family !== document.body.style.fontFamily) {
+            this.loadFont();
+        }
+    }
+
+    loadFont = () => {
+        WebFont.load({ google: { families: [Koji.config.general.fontFamily.family] } });
+        document.body.style.fontFamily = Koji.config.general.fontFamily.family;
+        document.querySelector('*').style.fontFamily=Koji.config.general.fontFamily.family;
+        this.forceUpdate();
+    };
 
     getScore() {
         let scores = JSON.parse(localStorage.getItem('scores'));
@@ -36,7 +51,6 @@ export default class App extends Component {
     }
 
 	render() {
-        console.log(this.state.view);
         if(this.state.view === 'intro') {
             return(
                 <TitlePage />
@@ -68,13 +82,6 @@ export default class App extends Component {
                 <EndPage page={backgroundVCC} banner={bannerVCC} score={this.getScore()}/>
             )       
         }
-		if (this.state.view === 'leaderboard') {
-			return (
-				<div>
-					<Leaderboard />
-				</div>
-			)
-		}
         if(this.state.view === 'tutorial') {
             return (
                 <TutorialPage />

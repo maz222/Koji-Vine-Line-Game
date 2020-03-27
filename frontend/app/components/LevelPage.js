@@ -10,7 +10,8 @@ class LevelPage extends Component {
         let pageColor = VCC.background.backgroundColor;
         let pageStyle = {
             width:'100%',
-            height:'100vh',
+            minHeight:'100vh',
+            maxHeight:'100%',
             display:'flex',
             justifyContent:'center',
             backgroundSize:'cover',
@@ -24,7 +25,7 @@ class LevelPage extends Component {
         let bannerColor = VCC.banner.backgroundColor;
         let bannerStyle = {
             width:'calc(100% - 40px)',
-            padding:'20px',
+            padding:'10px 20px 10px 20px',
             display:'flex',
             justifyContent:'space-between',
             alignItems:'center',

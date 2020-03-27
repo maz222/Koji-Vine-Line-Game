@@ -54,7 +54,7 @@ class GameBaseState {
     	let singleCallback = () => {this.bridge.addLines(1)};
     	let doubleCallback = () => {this.bridge.addLines(2)};
     	let trippleCallback = () => {this.bridge.addLines(3)};
-    	let buttonY = height -  (height*.2/2);
+    	let buttonY = height -  (height*.2/2) + 15;
     	let buttonX = width > 800 ? (width-800)/2 : 0;
     	let colWidth = Math.min(800,width);
 
@@ -62,19 +62,19 @@ class GameBaseState {
     	let singleHover = hexToHSL(VCC.singleLine.backgroundColor);
     	singleHover[2] = Math.max(0,singleHover[2]-20);
     	let singleImage = assets.images[6];
-		this.singleButton = new HoverButton([buttonX+(colWidth/4),buttonY],30,50,singleImage,singleColor,singleCallback,singleImage,singleHover);
+		this.singleButton = new HoverButton([buttonX+(colWidth/5*2),buttonY],30,50,singleImage,singleColor,singleCallback,singleImage,singleHover);
 
 		let doubleColor = hexToHSL(VCC.doubleLine.backgroundColor);
 		let doubleHover = hexToHSL(VCC.doubleLine.backgroundColor);
 		doubleHover[2] = Math.max(0,doubleHover[2]-20);
 		let doubleImage = assets.images[7];
-		this.doubleButton = new HoverButton([buttonX+(colWidth/4*2),buttonY],30,50,doubleImage,doubleColor,doubleCallback,doubleImage,doubleHover);
+		this.doubleButton = new HoverButton([buttonX+(colWidth/5*3),buttonY],30,50,doubleImage,doubleColor,doubleCallback,doubleImage,doubleHover);
 
 		let trippleColor = hexToHSL(VCC.trippleLine.backgroundColor);
 		let trippleHover = hexToHSL(VCC.trippleLine.backgroundColor);
 		trippleHover[2] = Math.max(0,trippleHover[2]-20);
 		let trippleImage = assets.images[8];
-		this.trippleButton = new HoverButton([buttonX+(colWidth/4*3),buttonY],30,50,trippleImage,trippleColor,trippleCallback,trippleImage,trippleHover);
+		this.trippleButton = new HoverButton([buttonX+(colWidth/5*4),buttonY],30,50,trippleImage,trippleColor,trippleCallback,trippleImage,trippleHover);
 	}
 	update() {
 		this.bridge.update(5);
@@ -178,7 +178,7 @@ class GameBaseState {
 	    push();
 	    //draw level
 	    //offset/center level
-	    translate((width-gridArr.length*this.grid.cellSize)/2,(height-gridArr[0].length*this.grid.cellSize)/2);
+	    translate((width-gridArr.length*this.grid.cellSize)/2,(height*.9-gridArr[0].length*this.grid.cellSize)/2);
 	    //background
 	    push();
 	    fill(VCC.levelBackground.backgroundColor);
@@ -271,7 +271,7 @@ class GameFailState extends GameBaseState {
 		let griddArr = this.grid.grid;
 	    push();
 	    //offset/center level
-	    translate((width-gridArr.length*this.grid.cellSize)/2,(height-gridArr[0].length*this.grid.cellSize)/2); 
+	    translate((width-gridArr.length*this.grid.cellSize)/2,(height*.9-gridArr[0].length*this.grid.cellSize)/2);
 	    push();
 	    fill(VCC.failColor);
 	    rect(0,0,griddArr.length*this.grid.cellSize,griddArr[0].length*this.grid.cellSize);
@@ -327,7 +327,7 @@ class GameWinState extends GameBaseState {
 		let griddArr = this.grid.grid;
 	    push();
 	    //offset/center level
-	    translate((width-gridArr.length*this.grid.cellSize)/2,(height-gridArr[0].length*this.grid.cellSize)/2);
+	    translate((width-gridArr.length*this.grid.cellSize)/2,(height*.9-gridArr[0].length*this.grid.cellSize)/2);
 	    push();
 	    fill(VCC.winColor);
 	    rect(0,0,griddArr.length*this.grid.cellSize,griddArr[0].length*this.grid.cellSize);

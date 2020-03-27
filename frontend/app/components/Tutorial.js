@@ -23,7 +23,7 @@ class TutorialPage extends Component {
 	    let bannerColor = VCC.banner.backgroundColor;
 	    let bannerStyle = {
 	        width:'calc(100% - 40px)',
-	        padding:'20px',
+            padding:'10px 20px 10px 20px',
 	        display:'flex',
 	        justifyContent:'space-between',
 	        alignItems:'center',
@@ -83,7 +83,7 @@ class TutorialPage extends Component {
 		        <div style={{width:'100%',display:'flex',flexDirection:'column',margin:'120px 0 60px 0',alignItems:'center',justifyContent:'space-between'}}>
 		        	<p style={pStyle}>Get from <img src={GAME_VCC.entrance} style={imageStyle}/> to <img src={GAME_VCC.exit} style={imageStyle}/>.</p>
 		        	<p style={pStyle}>Avoid <img src={GAME_VCC.wall} style={imageStyle}/> and the edges of the level.</p>
-		        	<p style={pStyle}>Collect <img src={GAME_VCC.coin} style={imageStyle}/> for points.</p>
+		        	<p style={pStyle}>Collect <img src={GAME_VCC.coin} style={imageStyle}/> for an extra challenge.</p>
 		        	<div style={{display:'flex',alignItems:'center'}}>
 		        		<div style={{display:'flex',flexDirection:'column',margin:'0 15px 15px 15px',alignItems:'center'}}>
 		        			<img src={GAME_VCC.singleLine.buttonImage} style={bttnStyle}/>

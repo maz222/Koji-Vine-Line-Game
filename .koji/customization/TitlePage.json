@@ -6,14 +6,14 @@
       "logo": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/3h8sc-TitleLogo.png"
     },
     "playButton": {
-      "content": "Level Select",
-      "color": "#f0f0f0",
-      "backgroundColor": "#52bb0c"
+      "content": "Play",
+      "color": "#0a0a0a",
+      "backgroundColor": "#ff8f00"
     },
     "howToPlayButton": {
       "content": "Tutorial",
-      "color": "#ffffff",
-      "backgroundColor": "#f23409"
+      "color": "#282828",
+      "backgroundColor": "#e6e6e6"
     },
     "background": {
       "backgroundColor": "#4c4949",

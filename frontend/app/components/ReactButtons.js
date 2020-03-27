@@ -54,6 +54,7 @@ class HoverButton extends Component {
 	}
 	render() {
 		let styling = this.props.styling;
+        styling = {...styling, fontFamily:Koji.config.general.fontFamily.family};
         let hoverColor = hexToHSL(this.props.styling.backgroundColor);
         hoverColor[2] = Math.max(0,hoverColor[2]-20);
         hoverColor = `hsl(${hoverColor[0]},${hoverColor[1]}%,${hoverColor[2]}%)`;

@@ -2,8 +2,6 @@ import { h, Component } from 'preact';
 
 import HoverButton from './ReactButtons.js';
 
-import ScoreForm from './ScoreForm.js';
-
 //props:
     //page - {backgroundColor,backgroundImage}
     //banner - {backgroundColor,color,content}
@@ -79,8 +77,7 @@ class EndPage extends Component {
 		return(
 			<div style={pageStyle}>
 				<h1 style={bannerStyle}>{bannerContent}</h1>
-				<div style={{width:'600px',display:'flex',flexDirection:'column',alignItems:'center',marginTop:'20px'}}>
-					{<ScoreForm score={this.props.score}/>}
+				<div style={{width:'600px',display:'flex',flexDirection:'column',alignItems:'center',marginTop:'20px',justifyContent:'center'}}>
 					{ReplayButton}
 					{LevelScreenButton}
 					{QuitButton}

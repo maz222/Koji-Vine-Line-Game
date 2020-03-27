@@ -64,20 +64,11 @@ class TitlePage extends Component {
             maxWidth:'100%',
             height:'auto',
             fontSize: '2em',
+            fontFamily:document.body.style.fontFamily
         };
         let image = VCC.title.logo;
         let titleText = VCC.title.content;
         let titleColor = VCC.title.color;
-        let leaderboardStyling = {
-            backgroundColor:VCC.leaderboardButton.backgroundColor,
-            color:VCC.leaderboardButton.color,
-            fontSize:'1.25em',
-            width:'calc(80% - 20px)',
-            padding:'10px',
-            border:'1px solid rgba(0,0,0,.15)',
-            borderRadius:'4px'           
-        };
-        let LeaderboardButton = <HoverButton styling={leaderboardStyling} content={VCC.leaderboardButton.content} callback={() => {window.setAppView('leaderboard')}} />;
 
         let playText = VCC.playButton.content;
         let playColor = VCC.playButton.color;
@@ -85,10 +76,11 @@ class TitlePage extends Component {
         let playStyling = {
             backgroundColor:playBackgroundColor,
             color:playColor,
-            fontSize:'1.25em',
+            fontSize:'2em',
             width:'calc(80% - 20px)',
-            padding:'10px',
+            padding:'20px',
             border:'1px solid rgba(0,0,0,.15)',
+            boxShadow:'0 0 0 4px rgba(0,0,0,.25)',
             borderRadius:'4px'
         };
         let PlayButton = <HoverButton styling={playStyling} content={playText} callback={() => {window.setAppView("levels")}}/>;
@@ -120,7 +112,6 @@ class TitlePage extends Component {
                     <h1 style={{...logoStyle, color:titleColor}}>{titleText}</h1> :
                     <img src={image} style={logoStyle}></img>
                 }
-                {LeaderboardButton}
                 {PlayButton}
                 {TutorialButton}
                 </div>

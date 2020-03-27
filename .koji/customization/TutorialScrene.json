@@ -13,7 +13,7 @@
   "@@editor": [
     {
       "key": "tutorial",
-      "name": "7. Tutorial Screen",
+      "name": "6. Tutorial Screen",
       "icon": "📧",
       "source": "TutorialScreen.json",
       "fields": [

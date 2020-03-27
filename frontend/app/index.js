@@ -132,40 +132,39 @@ function afterLoad() {
     
     VCC = Koji.config.gameScene;
 
-    let buttonY = (height*.2/2);
+    let buttonY = height - (height*.2/2) + 15;
     let buttonX = width > 800 ? (width-800)/2 : 0;
     let colWidth = Math.min(800,width);
     let backColor = hexToHSL(VCC.backButton.backgroundColor);
     let backHoverColor = hexToHSL(VCC.backButton.backgroundColor);
-	backHoverColor[2] = Math.max(0,backHoverColor[2]-20);
+    backHoverColor[2] = Math.max(0,backHoverColor[2]-20);
     //let backCallback = () => {assets.stopMusic(); window.setAppView("intro")};
     let backCallback = () => {
         soundController.mute();
-        window.setAppView("intro")
-        console.log("???");
+        window.setAppView("levels")
     };
-    backButton = new HoverButton([buttonX+colWidth/4,buttonY],30,50,assets.images[9],backColor,backCallback,assets.images[9],backHoverColor);
+    backButton = new HoverButton([buttonX+colWidth/5,buttonY],30,50,assets.images[9],backColor,backCallback,assets.images[9],backHoverColor);
 
-    let soundColor = hexToHSL(VCC.soundButton.backgroundColor);
-    let soundHoverColor = hexToHSL(VCC.soundButton.backgroundColor);
-	soundHoverColor[2] = Math.max(0,soundHoverColor[2]-20);
-    let soundCallback = () => {
+    //let soundColor = hexToHSL(VCC.soundButton.backgroundColor);
+    ////let soundHoverColor = hexToHSL(VCC.soundButton.backgroundColor);
+    //soundHoverColor[2] = Math.max(0,soundHoverColor[2]-20);
+    //let soundCallback = () => {
         //localStorage.setItem('isMuted',localStorage.getItem('isMuted') == 'false' ? 'true' : 'false');
         //assets.toggleMute();
-        soundController.toggleMute();
-    };
-    soundButton = new SoundButton([width-buttonX-colWidth/4,buttonY],30,50,assets.images[10],soundColor,soundCallback,assets.images[11],soundHoverColor)
+        //soundController.toggleMute();
+    //};
+    //soundButton = new SoundButton([width-buttonX-colWidth/4,buttonY],30,50,assets.images[10],soundColor,soundCallback,assets.images[11],soundHoverColor)
 
-    let gridArea = [width,height*.6];
+    let gridArea = [width,height*.8];
     let cellSize = Math.min(gridArea[0]/gridArr.length, gridArea[1]/gridArr[0].length);
     //cellSize = Math.min(cellSize,40);
-	let gridOrigin = [(width-gridArr.length*cellSize)/2,(height-gridArr[0].length*cellSize)/2];
+    let gridOrigin = [(width-gridArr.length*cellSize)/2,(height-gridArr[0].length*cellSize)/2-height*.1];
     grid = new GameGrid(gridOrigin,gridArr,cellSize,.75);
 
 
     let playerSpawnCell = grid.getSpawn();
     let playerSpawnPos = [playerSpawnCell[0]*cellSize+cellSize/2,playerSpawnCell[1]*cellSize+cellSize/2];
-	let stroke_size = Math.max(1,Math.round(cellSize/10));
+    let stroke_size = Math.max(1,Math.round(cellSize/10));
     bridge = new PlayerBridge(playerSpawnPos,cellSize,stroke_size);
 
     let gridSize = [cellSize*gridArr.length,cellSize*gridArr[0].length];
@@ -175,9 +174,10 @@ function afterLoad() {
     backgroundMask = createGraphics(width,height);
     backgroundMask.fill('rgba(0,0,0,1)');
     //top
-    backgroundMask.rect(0,0,width,(height-gridSize[1])/2);
+    backgroundMask.rect(0,0,width,(height*.9-gridSize[1])/2);
     //bottom
-    backgroundMask.rect(0,height-(height-gridSize[1])/2,width,(height-gridSize[1])/2);
+    let bottomStart = (height*.9-gridSize[1])/2 + gridSize[1];
+    backgroundMask.rect(0,bottomStart,width,height);
     //left
     backgroundMask.rect(0,0,(width-gridSize[0])/2,height);
     //right
@@ -234,7 +234,7 @@ function draw() {
         image(backgroundLayer,0,0,width,height);
         this.gameState.renderButtons();
         backButton.render();
-        soundButton.render();
+        //soundButton.render();
     }
 }
 
@@ -245,7 +245,8 @@ function touchStarted() {
 }
 
 function touchEnded() {
-    if(!this.backButton.handleClick() && !this.soundButton.handleClick()) {
+    //if(!this.backButton.handleClick() && !this.soundButton.handleClick()) {
+    if(!this.backButton.handleClick()) {
         this.gameState.handleClick();
     }
     return false;

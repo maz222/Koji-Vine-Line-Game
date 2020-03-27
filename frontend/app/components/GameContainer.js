@@ -29,7 +29,7 @@ class GameContainer extends Component {
 
     render() {
         return (
-            <div id={'game-container'} />
+            <div id={'game-container'} style={{position:'fixed'}}/>
         );
     }
 }
