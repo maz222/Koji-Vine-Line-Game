@@ -10,8 +10,7 @@ class LevelPage extends Component {
         let pageColor = VCC.background.backgroundColor;
         let pageStyle = {
             width:'100%',
-            minHeight:'100vh',
-            maxHeight:'100%',
+            height:'100%',
             display:'flex',
             justifyContent:'center',
             backgroundSize:'cover',
@@ -81,7 +80,7 @@ class LevelPage extends Component {
                     <h1 style={titleStyle}>{title}</h1>
                     <div />
                 </div>
-                <div style={{width:'100%',display:'flex',flexDirection:'column',marginTop:'80px'}}>
+                <div style={{width:'100%',display:'flex',flexDirection:'column',overflowY:'scroll'}}>
                     {this.props.levels.map((level,index) => {
                         let name = level.title == "" || level.title == undefined ? `Level ${index+1}` : level.title;
                         return(

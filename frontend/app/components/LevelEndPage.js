@@ -11,7 +11,7 @@ class EndPage extends Component {
 		let pageColor = this.props.page.backgroundColor;
         let pageStyle = {
             width:'100%',
-            height:'100vh',
+            height:'100%',
             display:'flex',
             flexDirection:'column',
             alignItems:'center',
