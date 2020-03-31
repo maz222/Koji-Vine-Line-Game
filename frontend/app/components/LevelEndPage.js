@@ -74,10 +74,11 @@ class EndPage extends Component {
 		let quitCallback = () => {window.setAppView("intro")};
 		let QuitButton = <HoverButton styling={quitStyle} content={quitContent} callback={quitCallback}/>
 
+        let wrapperWidth = Math.min(600,window.innerWidth);
 		return(
 			<div style={pageStyle}>
 				<h1 style={bannerStyle}>{bannerContent}</h1>
-				<div style={{width:'600px',display:'flex',flexDirection:'column',alignItems:'center',marginTop:'20px',justifyContent:'center'}}>
+				<div style={{width:wrapperWidth+'px',display:'flex',flexDirection:'column',alignItems:'center',marginTop:'20px',justifyContent:'center'}}>
 					{ReplayButton}
 					{LevelScreenButton}
 					{QuitButton}
