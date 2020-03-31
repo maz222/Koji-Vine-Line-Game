@@ -16,7 +16,6 @@ function init() {
 if (module.hot) {
 	//require('preact/devtools');   // turn this on if you want to enable React DevTools!
 	module.hot.accept('../app/components/App', () => requestAnimationFrame(init) );
-    document.getElementById("root").style.height = window.innerHeight+'px';
 }
 
 init();

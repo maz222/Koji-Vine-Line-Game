@@ -13,6 +13,7 @@ export default class App extends Component {
 	};
     
     componentDidMount() {
+        document.getElementById("root").style.height = window.innerHeight+'px';
 		window.setAppView = view => { this.setState({ view }); }
 		window.setScore = score => { this.setState({ score }); }
         sessionStorage.setItem('isMuted','true');

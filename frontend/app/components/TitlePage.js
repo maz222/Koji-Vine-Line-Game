@@ -22,7 +22,6 @@ class TitlePage extends Component {
         let pageColor = VCC.background.backgroundColor;
         let pageStyle = {
             width:'100%',
-            minHeight:window.innerHeight + 'px',
             height:'100%',
             display:'flex',
             justifyContent:'center',
