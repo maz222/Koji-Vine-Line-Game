@@ -33,8 +33,9 @@ class TitlePage extends Component {
             pageStyle = {...pageStyle, backgroundImage:`url(${pageImage})`};
         }
 
+        let wrapperWidth = Math.min(600,window.innerWidth) + 'px';
         let wrapperStyle = {
-            width:'600px',
+            width:wrapperWidth,
             height:'100%',
             display:'flex',
             flexDirection:'column',

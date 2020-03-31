@@ -80,7 +80,7 @@ class LevelPage extends Component {
                     <h1 style={titleStyle}>{title}</h1>
                     <div />
                 </div>
-                <div style={{width:'100%',display:'flex',flexDirection:'column',overflowY:'scroll'}}>
+                <div style={{width:'100%',display:'flex',flexDirection:'column',overflowY:'scroll',marginTop:'60px'}}>
                     {this.props.levels.map((level,index) => {
                         let name = level.title == "" || level.title == undefined ? `Level ${index+1}` : level.title;
                         return(
