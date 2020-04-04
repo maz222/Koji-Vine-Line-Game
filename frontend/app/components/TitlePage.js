@@ -64,7 +64,7 @@ class TitlePage extends Component {
         let logoStyle = {
             maxWidth:'100%',
             height:'auto',
-            fontSize: '2em',
+            fontSize: '4em',
             fontFamily:document.body.style.fontFamily
         };
         let image = VCC.title.logo;

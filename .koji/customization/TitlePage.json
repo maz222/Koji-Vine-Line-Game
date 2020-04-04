@@ -2,8 +2,7 @@
   "titleScreen": {
     "title": {
       "content": "Vine Line",
-      "color": "#f20101",
-      "logo": "https://images.koji-cdn.com/80d38f82-bbf8-4e6f-af64-1694dfd8bbe6/3h8sc-TitleLogo.png"
+      "color": "#0a0a0a"
     },
     "playButton": {
       "content": "Play",
